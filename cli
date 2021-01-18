@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# docker exec -it yii2_test -e PHP_IDE_CONFIG="serverName=docker" -e XDEBUG_SESSION=docker "$@"
-docker exec -it yii2_test bash -c "$@"
