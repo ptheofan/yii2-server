@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -z "$1" ] || [ -z "$2" ]
+  then
+    echo "Remove all comments and empty lines from a php ini file"
+    echo "- Usage:"
+    echo "  $0 source dest";
+    echo "- Example:"
+    echo "  $0 php.dev.ini php.ini"
+    echo "IMPORTANT"
+    echo "if source is the same as destination the source file will be overwriten"
+    exit;
+fi
+
+SOURCE=$1
+TMP=".$1.tmp"
+TARGET=$2
+echo "; Generated from $SOURCE" > $TMP
+grep -E -v "^\s*($|;)" "$SOURCE" >> "$TMP" && mv "$TMP" "$TARGET"
