@@ -74,6 +74,10 @@ RUN pecl install -D 'enable-redis-igbinary="yes" enable-redis-lzf="no" enable-re
 RUN printf "\n" | pecl install mongodb; \
     docker-php-ext-enable mongodb
 
+# PECL; APCU
+RUN printf "\n" | pecl install apcu; \
+    docker-php-ext-enable apcu
+
 # default php config folder is going to be replaced
 # make a copy to have a place for reference when needed
 RUN cp -r /usr/local/etc/php /usr/local/etc/php.bak
